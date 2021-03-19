@@ -10,7 +10,7 @@ global localjsonfile
 global localcsvfile
 global localaggregateddata
 global localpivotdata
-global OutputFile
+global CovidOutputFile
 
 global GraphTitle, WatermarkTitle, WatermarkSubtitle, ExtraAnnotations
 global PaperColour
@@ -38,7 +38,7 @@ localjsonfile='RIVM_data.json'
 localcsvfile='lcps.csv'
 localaggregateddata='covid_aggregated.csv'
 localpivotdata='covid_pivot.csv'
-OutputFile="COVID"
+CovidOutputFile="COVID"
 
 
 ###############
