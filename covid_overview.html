@@ -49,7 +49,7 @@ line {
 line#limit {
   stroke: #e87c99;
   stroke-width: 3;
-  stroke-dasharray: 3 6;
+  stroke-dasharray: 6 6;
 }
 
 .grid path {
@@ -135,11 +135,6 @@ const sample = [
     names: 'Immune',
     percent: 27.0,
     value: 4.5
-  }, 
-    {
-    names: 'Not immune',
-    percent: 73.34,
-    value: 12.56
   }, 
   {
     names: 'Herd immunity',
@@ -294,7 +289,7 @@ svg.append('text')
   .attr('x', (width / 2) + (margin/2))
   .attr('y', 30)
   .attr('text-anchor', 'middle')
-  .text('Cumulative Covid-19 cases')
+  .text('Cumulative Covid-19 numbers in the Netherlands')
 
 svg.append('text')
   .attr('class', 'subtitle')
