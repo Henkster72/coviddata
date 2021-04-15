@@ -108,36 +108,43 @@ text.source {
   </div>
   
 <script>
+//{"names":{"0":"Not immune people","1":"Deceased","2":"Fully vaccinated","3":"Not fully vaccinated","4":"Tested positive"},"values":{"0":12567502,"1":16848,"2":3214978,"3":685486,"4":1369411},"percent":{"0":"73.34","1":"0.10","2":"18.76","3":"4.00","4":"7.99"}}
+
 const sample = [
   {
-    group: 'Deceased',
+    names: 'Deceased',
     percent: 0.009,
     value: .017
   },
   {
-    group: 'Positive tests',
-    percent: 15.0,
-    value: 1.4
+    names: 'Positive tests',
+    percent: 8,
+    value: 1.37
   },
   {
-    group: 'Fully vaccinated',
-    percent: 16,
-    value: 3
+    names: 'Fully vaccinated',
+    percent: 18.76,
+    value: 3.21
   },
   {
-    group: 'Vaccinations',
-    percent: 21,
-    value: 4.4
+    names: 'Vaccinations',
+    percent: 22.76,
+	value: 4.0 
   },  
   {
-    group: 'Immune',
-    percent: 37.0,
-    value: 3.2
+    names: 'Immune',
+    percent: 27.0,
+    value: 4.5
+  }, 
+    {
+    names: 'Not immune',
+    percent: 73.34,
+    value: 12.56
   }, 
   {
-    group: 'Herd immunity',
+    names: 'Herd immunity',
     percent: 67,
-    value: 12
+    value: 11.48
   }
 ];
 </script>  
@@ -155,7 +162,7 @@ const chart = svg.append('g')
 
 const xScale = d3.scaleBand()
   .range([0, width])
-  .domain(sample.map((s) => s.group))
+  .domain(sample.map((s) => s.names))
   .padding(0.3)
 
 const yScale = d3.scaleLinear()
@@ -208,7 +215,7 @@ barGroups
   .append('rect')
   .attr('class', 'bar')
   //.attr('colour', g.color)
-  .attr('x', (g) => xScale(g.group))
+  .attr('x', (g) => xScale(g.names))
   .attr('y', (g) => yScale(g.percent))
   .attr('height', (g) => height - yScale(g.percent))
   .attr('width', xScale.bandwidth())
@@ -220,7 +227,7 @@ barGroups
       .transition()
       .duration(200)
       .attr('opacity', 0.5)
-      .attr('x', (a) => xScale(a.group) - 5)
+      .attr('x', (a) => xScale(a.names) - 5)
       .attr('width', xScale.bandwidth() + 15)
 
     const y = yScale(actual.percent)
@@ -234,7 +241,7 @@ barGroups
 
     barGroups.append('text')
       .attr('class', 'divergence')
-      .attr('x', (a) => xScale(a.group) + xScale.bandwidth() / 2)
+      .attr('x', (a) => xScale(a.names) + xScale.bandwidth() / 2)
       .attr('y', (a) => yScale(a.percent) + 30)
       .attr('fill', 'white')
       .attr('text-anchor', 'middle')
@@ -258,7 +265,7 @@ barGroups
       .transition()
       .duration(400)
       .attr('opacity', 1)
-      .attr('x', (a) => xScale(a.group))
+      .attr('x', (a) => xScale(a.names))
       .attr('width', xScale.bandwidth())
 
     chart.selectAll('#limit').remove()
@@ -268,7 +275,7 @@ barGroups
 barGroups
   .append('text')
   .attr('class', 'percent')
-  .attr('x', (a) => xScale(a.group) + xScale.bandwidth() / 2)
+  .attr('x', (a) => xScale(a.names) + xScale.bandwidth() / 2)
   .attr('y', (a) => yScale(a.percent) + 30)
   .attr('text-anchor', 'middle')
   .text((a) => `${a.percent}%`)
