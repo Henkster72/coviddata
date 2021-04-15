@@ -17,11 +17,17 @@ div#layout {
 }
 
 div#graphcontainer {
-  width: 700px;
-  height: 500px;
-  margin: auto;
-  background-color: #E3EDFD;
-  border-radius: 5px;
+	width: 700px;
+	height: 500px;
+	margin: auto;
+	background-color: #E3EDFD;
+	border-radius: 5px;
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%; 
+	vertical-align: middle; 
+	overflow: hidden; 
 }
 
 svg {
@@ -103,7 +109,7 @@ text.source {
 <body>
   <div id='layout'>
     <div id='graphcontainer'>
-      <svg viewBox='0 0 650 450'/>
+      <svg version="1.1" viewBox="0 0 650 450" preserveAspectRatio="xMinYMin meet" class="svg-content">
     </div>
   </div>
   
