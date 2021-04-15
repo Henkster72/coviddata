@@ -3,7 +3,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-  <title>Bar chart with D3.js</title>
   
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <script>
@@ -22,7 +21,7 @@ div#graphcontainer {
   height: 500px;
   margin: auto;
   background-color: #E3EDFD;
-  border-radius: var(--defaultrounding);
+  border-radius: 5px;
 }
 
 svg {
@@ -103,9 +102,8 @@ text.source {
 </head>
 <body>
   <div id='layout'>
-    <!-- <h2>Bar chart example</h2> -->
     <div id='graphcontainer'>
-      <svg viewBox='0 0 650 450'/>
+      <svg />
     </div>
   </div>
   
@@ -138,7 +136,7 @@ const sample = [
   }, 
   {
     group: 'Herd immunity',
-    percent: 67.1,
+    percent: 67,
     value: 12
   }
 ];
