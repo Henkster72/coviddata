@@ -21,7 +21,7 @@ div#graphcontainer {
 	width: 700px;
 	height: 500px;
 	margin: auto;
-	background-color: #E3EDFD;
+	background-color: #fff;
 	border-radius: 5px;
 	display: inline-block;
 	position: relative;
@@ -68,7 +68,7 @@ line#herdline {
 }
 
 .grid .tick line {
-  stroke: #fff;
+  stroke: #ddd;
   stroke-opacity: 0.5;
 }
 
@@ -141,13 +141,10 @@ const sample = [
     names: 'Immune',
     percent: 27.0,
     value: 4.5
-  }, 
-  {
-    names: 'Herd immunity',
-    percent: 67,
-    value: 11.48
   }
 ];
+
+const herdtext = "Herd immunity:";
 </script>  
 <script>
 
@@ -211,7 +208,7 @@ svg.append('text')
   .attr('x', 2 * margin)
   .attr('y', height + margin * 1.8)
   .attr('text-anchor', 'middle')
-  .text('')
+  .text(herdtext)
   
 const barGroups = chart.selectAll()
   .data(sample)
